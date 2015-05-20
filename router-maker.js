@@ -6,7 +6,7 @@ module.exports = function (router, Model, modelName) {
     router.route('/' + modelName + 's')
         .post(function (req, res) {
             var model = new Model();
-            var data = req.body[modelName];
+            var data = req.body;
             for (var key in data) {
                 if (data.hasOwnProperty(key)) {
                     model[key] = data[key];
@@ -17,22 +17,28 @@ module.exports = function (router, Model, modelName) {
                 if (err) {
                     return res.send(err);
                 }
-                var key = modelName;
-                var obj = {};
-                obj[key] = model;
-                return res.json(obj);
+                // var key = modelName;
+                // var obj = {};
+                // obj[key] = model;
+                // return res.json(obj);
+                return res.json(model);
             });
         })
         .get(function (req, res) {
             Model.find(function (err, models) {
-                var key = (modelName + 's');
-                var payload = {};
-                payload[key] = models;
+                // var key = (modelName + 's');
+                // var payload = {};
+                // payload[key] = models;
 
                 if (err) {
                     res.send(err);
                 }
 
+                // res.json(payload);
+                var payload = {};
+                models.forEach(function (model) {
+                    payload[model.email] = model;
+                })
                 res.json(payload);
             });
         });
