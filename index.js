@@ -15,7 +15,7 @@ app.use(bodyParser());
 console.log(path.join(__dirname, './static/'));
 app.use(express.static(path.join(__dirname, './static')));
 
-var MONGO_URI = "mongodb://u:p@ds051893.mongolab.com:51893/heroku_8kj35h1f";
+var MONGO_URI = "mongodb://u:p@ds059393-a0.mongolab.com:59393,ds059393-a1.mongolab.com:59393/heroku_lv29v4g1?replicaSet=rs-ds059393";
 // var MONGO_URI = "mongodb://theuser:thepassword@ds031892.mongolab.com:31892/heroku_app36993917";
 // var MONGO_URI = 'mongodb://localhost/coffeeorder';
 
