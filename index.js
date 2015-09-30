@@ -15,7 +15,8 @@ app.use(bodyParser());
 console.log(path.join(__dirname, './static/'));
 app.use(express.static(path.join(__dirname, './static')));
 
-var MONGO_URI = "mongodb://theuser:thepassword@ds031892.mongolab.com:31892/heroku_app36993917";
+var MONGO_URI = "mongodb://u:p@ds051893.mongolab.com:51893/heroku_8kj35h1f";
+// var MONGO_URI = "mongodb://theuser:thepassword@ds031892.mongolab.com:31892/heroku_app36993917";
 // var MONGO_URI = 'mongodb://localhost/coffeeorder';
 
 // Database ORM, thanks to mongoose
