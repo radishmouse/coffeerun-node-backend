@@ -2,9 +2,7 @@
 
 # Step 1: Install mongodb
 
-This may or may not be the right package name...
-
-    brew install mongodb
+[Download and install MongoDB](https://www.mongodb.org/downloads#production)
 
 # Step 2: Start mongod
 
@@ -12,4 +10,4 @@ This may or may not be the right package name...
 
 # Step 3: Run the server.
 
-    npm install && node index.js
+    npm install && npm start
