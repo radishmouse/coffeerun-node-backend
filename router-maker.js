@@ -21,7 +21,41 @@ module.exports = function(router, Model, modelName) {
         // var obj = {};
         // obj[key] = model;
         // return res.json(obj);
+        console.log('adding ' + model.email);
         return res.json(model);
+      });
+    })
+    .delete(function(req, res) {
+      Model.find(function(err, models) {
+        if (err) {
+          res.send(err);
+        }
+
+        var _individualErr = null;
+
+        var payload = {
+          message: ''
+        };
+
+        models.forEach(function(model) {
+          // Caching because model.email has no val inside
+          // the .remove callback
+          var email = model.email;
+          Model.remove({ email: model.email }, function(err, model) {
+            console.log('Successfully deleted ' + modelName + ' ' + email);
+
+            if (err) {
+              res.send(err);
+            }
+          });
+        });
+
+        if (_individualErr) {
+          res.send(_individualErr);
+        } else {
+          res.json(payload);
+        }
+
       });
     })
     .get(function(req, res) {
