@@ -8,6 +8,16 @@
 
     mongod
 
-# Step 3: Run the server.
+# Step 3: Create a local .env file that looks like:
 
-    npm install && npm start
+```
+MONGOLAB_URI=mongodb://localhost/coffeeorder
+PORT=1337
+```
+
+Do *not* check this in to source control.
+
+
+# Step 4: Run the server.
+
+    npm install && npm run dev

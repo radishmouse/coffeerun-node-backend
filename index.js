@@ -7,7 +7,7 @@
 var path = require('path');
 var express = require('express');
 var app = express();
-var port = process.env.PORT || 1337;
+var port = process.env.PORT;
 
 var makeRoutes = require('./router-maker');
 
@@ -59,4 +59,4 @@ makeRoutes(router, CoffeeOrderModel, 'coffeeorder');
 // Fire it up! Fire it up!------------------------------
 app.use('/api', router);
 app.listen(port, '0.0.0.0');
-console.log('Now you are 1337: ' + port);
+console.log('Running on port ' + port);
