@@ -1,7 +1,5 @@
 'use strict';
 
-// Get ENV variables ------------------
-require('dotenv').config();
 
 
 // Basic App setup --------------------
