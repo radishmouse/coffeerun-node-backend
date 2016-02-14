@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, './static')));
 
 // Database ORM, thanks to mongoose
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(process.env.MONGOLAB_URI);
 
 // Our models
 var CoffeeOrderModel = require('./models/coffeeorder');
