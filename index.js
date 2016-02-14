@@ -1,7 +1,11 @@
 'use strict';
 
+// Get ENV variables ------------------
+require('dotenv').config();
+
 
 // Basic App setup --------------------
+//
 var path = require('path');
 var express = require('express');
 var app = express();
@@ -16,17 +20,9 @@ console.log(path.join(__dirname, './static/'));
 app.use(express.static(path.join(__dirname, './static')));
 
 
-var MONGO_URI = "mongodb://u:p@ds059393-a0.mongolab.com:59393,ds059393-a1.mongolab.com:59393/heroku_lv29v4g1?replicaSet=rs-ds059393";
-
-// var MONGO_URI = "mongodb://<dbuser>:<dbpassword>@ds059393-a0.mongolab.com:59393,ds059393-a1.mongolab.com:59393/heroku_lv29v4g1?replicaSet=rs-ds059393";
-/*
-var MONGO_URI = 'mongodb://localhost/coffeeorder';
-// var MONGO_URI = "mongodb://theuser:thepassword@ds031892.mongolab.com:31892/heroku_app36993917";
-// */
-
 // Database ORM, thanks to mongoose
 var mongoose = require('mongoose');
-mongoose.connect(MONGO_URI);
+mongoose.connect(process.env.MONGO_URI);
 
 // Our models
 var CoffeeOrderModel = require('./models/coffeeorder');
