@@ -7,7 +7,7 @@ var Schema = mongoose.Schema;
 var CoffeeOrderSchema = new Schema({
     flavor: String,
     size: String,
-    email: {
+    emailAddress: {
         type: String,
         required: true
     },
