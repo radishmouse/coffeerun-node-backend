@@ -21,7 +21,7 @@ module.exports = function(router, Model, modelName) {
         // var obj = {};
         // obj[key] = model;
         // return res.json(obj);
-        console.log('adding ' + model.email);
+        console.log('adding ' + model.emailAddress);
         return res.json(model);
       });
     })
@@ -40,8 +40,8 @@ module.exports = function(router, Model, modelName) {
         models.forEach(function(model) {
           // Caching because model.email has no val inside
           // the .remove callback
-          var email = model.email;
-          Model.remove({ email: model.email }, function(err, model) {
+          var email = model.emailAddress;
+          Model.remove({ emailAddress: model.emailAddress }, function(err, model) {
             console.log('Successfully deleted ' + modelName + ' ' + email);
 
             if (err) {
@@ -71,7 +71,7 @@ module.exports = function(router, Model, modelName) {
         // res.json(payload);
         var payload = {};
         models.forEach(function(model) {
-          payload[model.email] = model;
+          payload[model.emailAddress] = model;
         });
 
         res.json(payload);
@@ -82,7 +82,7 @@ module.exports = function(router, Model, modelName) {
   router.route('/' + modelName + 's/:id')
     .get(function(req, res) {
       console.log(req.params);
-      Model.findOne({ email: req.params.id }, function(err, model) {
+      Model.findOne({ emailAddress: req.params.id }, function(err, model) {
         if (err) {
           res.send(err);
         }
@@ -91,7 +91,7 @@ module.exports = function(router, Model, modelName) {
       });
     })
     .put(function(req, res) {
-      Model.findOne({ email: req.params.id }, function(err, model) {
+      Model.findOne({ emailAddress: req.params.id }, function(err, model) {
         if (err) {
           res.send(err);
         }
@@ -113,7 +113,7 @@ module.exports = function(router, Model, modelName) {
       });
     })
     .delete(function(req, res) {
-      Model.remove({ email: req.params.id }, function(err, model) {
+      Model.remove({ emailAddress: req.params.id }, function(err, model) {
         if (err) {
           res.send(err);
         }
