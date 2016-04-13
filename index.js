@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 // Basic App setup --------------------
 //
 var path = require('path');
