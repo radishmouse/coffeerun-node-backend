@@ -10,9 +10,9 @@ var port = process.env.PORT;
 var makeRoutes = require('./router-maker');
 
 var bodyParser = require('body-parser');
-// app.use(bodyParser());
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser());
+// app.use(bodyParser.json());
+// app.use(bodyParser.urlencoded({extended: true}));
 
 console.log(path.join(__dirname, './static/'));
 app.use(express.static(path.join(__dirname, './static')));
