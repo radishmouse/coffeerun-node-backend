@@ -10,9 +10,9 @@ var port = process.env.PORT;
 var makeRoutes = require('./router-maker');
 
 var bodyParser = require('body-parser');
-app.use(bodyParser());
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: true}));
+// app.use(bodyParser());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 console.log(path.join(__dirname, './static/'));
 app.use(express.static(path.join(__dirname, './static')));
@@ -20,7 +20,7 @@ app.use(express.static(path.join(__dirname, './static')));
 
 // Database ORM, thanks to mongoose
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGOLAB_URI);
+mongoose.connect(process.env.MONGODB_URI);
 
 // Our models
 var CoffeeOrderModel = require('./models/coffeeorder');
