@@ -21,3 +21,31 @@ Do *not* check this in to source control.
 # Step 4: Run the server.
 
     npm install && npm run dev
+
+
+
+---
+
+# 2017-03-07: fixing deleted app
+
+
+
+`git push heroku caquino/2016:master`
+
+instead of
+
+`app.use(bodyParser());`
+
+use this:
+
+`app.use(bodyParser.json());`
+`app.use(bodyParser.urlencoded({extended: true}));`
+
+
+also:
+
+`mongoose.connect(process.env.MONGODB_URI);`
+
+instead of:
+
+`mongoose.connect(process.env.MONGOLAB_URI);`

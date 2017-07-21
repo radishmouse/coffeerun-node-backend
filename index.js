@@ -5,7 +5,8 @@
 var path = require('path');
 var express = require('express');
 var app = express();
-var port = process.env.PORT;
+// var port = process.env.PORT;
+var port = 3000;
 
 var makeRoutes = require('./router-maker');
 
@@ -20,7 +21,8 @@ app.use(express.static(path.join(__dirname, './static')));
 
 // Database ORM, thanks to mongoose
 var mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb://localhost:27017/');
 
 // Our models
 var CoffeeOrderModel = require('./models/coffeeorder');
